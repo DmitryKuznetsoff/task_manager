@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            {% if session['username'] %}
+            <a href="{{ url_for('logout') }}"><b>logout</b></a>
+            {% else %}
+            <a href="{{ url_for('login') }}"><b>login</b></a>
+            {% endif %}
+            <a href="{{ url_for('register') }}"><b>register</b></a>
+            <a href="{{ url_for('create_task') }}"><b>create task</b></a>
+            <a href="{{ url_for('active_tasks') }}"><b>active tasks</b></a>
+            <a href="{{ url_for('in_progress_tasks') }}"><b>in progress tasks</b></a>
+            <a href="{{ url_for('archive') }}"><b>archive</b></a>
+            <a href="{{ url_for('stats') }}"><b>stats</b></a>
+        </nav>
+    </header>
+    {% if session['username'] %}
+    <p>you are logged in as <b>{{ session['username'] }}</b></p>
+    {% endif %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

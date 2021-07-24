@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block title %}tasks in progres{% endblock %}
+
+{% block content %}
+<div>
+    <p><b>tasks in progress</b></p>
+    <table>
+        {% for task in tasks %}
+        <tr>
+            <td>
+                {{ task.title }}
+            </td>
+            <td>
+                {{ task.updated_at | local_datetime}}
+            </td>
+            <td>
+                {{ task.username }}
+            </td>
+            <td>
+                <form action=/complete_task/{{task.id}} method="post" name="complete_task" id="complete_task">
+                    <input type="submit" value="complete">
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                </form>
+            </td>
+            <td>
+                <form action=/cancel_task/{{task.id}} method="post" name="cancel_task" id="cancel_task">
+                    <input type="submit" value="cancel">
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

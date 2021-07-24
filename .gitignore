@@ -1,0 +1,22 @@
+### Python ###
+../.idea/
+.idea/
+/.idea/
+.venv/
+env/
+venv/
+.env
+.env.prod
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.sqlite3
+
+
+### Project specific ###
+settings_local.py
+
+### OS specific ###
+.DS_Store

@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block title %}archived tasks{% endblock %}
+
+{% block content %}
+<div>
+    <p><b>archived tasks</b></p>
+    <table>
+        {% for task in tasks %}
+        <tr>
+            <td>
+                {{ task.title }}
+            </td>
+
+            <td>
+                {{ task.description }}
+            </td>
+            <td>
+                {{ task.status.value }}
+            </td>
+            <td>
+                {{ task.updated_at | local_datetime}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

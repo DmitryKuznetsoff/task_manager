@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block title %}create task{% endblock %}
+
+{% block content %}
+<div>
+    <form method="post" name="create_task">
+        <p><b>create task</b></p>
+        <input type="date" name="creation_date" id="creation_date" required placeholder="creation date">
+        <input type="time" name="creation_time" id="creation_time" required placeholder="creation time"><br>
+        <input type="text" name="title" id="title" required placeholder="title"><br>
+        <p><textarea name="description" id="description" required placeholder="description"></textarea></p>
+        <input type="submit" value="create task">
+    </form>
+</div>
+{% endblock %}

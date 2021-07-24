@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block title %}stats{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        <li><a href="{{ url_for('active_tasks') }}">Active tasks:</a> {{active}}</li>
+        <li><a href="{{ url_for('in_progress_tasks') }}">Tasks in progress:</a> {{in_progress}}</li>
+        <li><a href="{{ url_for('archive') }}">Canceled tasks:</a> {{canceled}}</li>
+    </ul>
+    <p>Average execution time: {{ average_execution_time }}</p>
+</div>
+{% endblock %}

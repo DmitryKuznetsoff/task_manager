@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{% block title %}active tasks{% endblock %}
+
+{% block content %}
+<div>
+    <p><b>active tasks</b></p>
+    <a href="{{ url_for('create_task') }}">create new task</a>
+    <table>
+        {% for task in tasks %}
+        <tr>
+            <td>
+                {{ task.title }}
+            </td>
+            <td>
+                {{ task.created_at|local_datetime }}
+            </td>
+            <td>
+                <form action=/take_task/{{task.id}} method="post" name="take_task" id="take_task">
+                    <input type="submit" value="take">
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
